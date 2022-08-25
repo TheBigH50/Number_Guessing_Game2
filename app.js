@@ -1,4 +1,6 @@
 //welcome screen/start game (main screen, pose question give 2 buttons yes or no)
+let startGame = document.getElementById("start");
+letnoThanks = document.getElementById("noThanks");
 
 //make no pop to thanks for visiting page
 
