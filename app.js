@@ -6,13 +6,18 @@ let wouldYou = document.getElementById("wouldYou");
 let gameCard = document.getElementById("gameCard");
 
 //make no pop to thanks for visiting page
-visible = function() {wouldYou.style.display = "none"};
+function hideContainers() {
+  wouldYou.classList.toggle("notVisible");
+}
+function showContainers() {
+  thankYou.classList.toggle("visible");
+}
 
-noThanks.onclick = function () {
-  wouldYou.classList.toggle(visible);
-  gameCard.style.display = "none";
-  thankYou.style.display = "flex";
-};
+noThanks.addEventListener("submit", (event) => {
+  event.preventDefault();
+  hideContainers();
+  showContainers();
+});
 
 //make yes pose difficulty choice with 4 buttons
 

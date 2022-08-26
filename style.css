@@ -18,3 +18,15 @@ body {
 #wouldYou {
     display: block;
 }
+
+.notVisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+#gameCard {
+    display: none;
+}
