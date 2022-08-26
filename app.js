@@ -13,8 +13,7 @@ function showContainers() {
   thankYou.classList.toggle("visible");
 }
 
-noThanks.addEventListener("submit", (event) => {
-  event.preventDefault();
+noThanks.addEventListener("click",(event) => {
   hideContainers();
   showContainers();
 });
