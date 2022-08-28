@@ -4,8 +4,6 @@ let noThanks = document.getElementById("noThanks");
 let thankYou = document.getElementById("thankYouCard");
 let wouldYou = document.getElementById("wouldYou");
 let gameCard = document.getElementById("gameCard");
-let options = document.getElementById("difficulty1");
-let difficultyOption = document.getElementById("difficultyOption");
 //make no pop to thanks for visiting page
 function hideContainers() {
   wouldYou.classList.toggle("hide");
