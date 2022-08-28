@@ -11,22 +11,13 @@ body {
 }
 
 #thankYouCard {
+    background-color: rgb(238, 5, 5);
+}
+
+.hide {
     display: none;
-    background-color: black;
-}
-
-#wouldYou {
-    display: block;
-}
-
-.notVisible {
-    display: none;
-}
-
-.visible {
-    display: block;
 }
 
 #gameCard {
-    display: none;
+    background-color: rgb(33, 233, 99);
 }

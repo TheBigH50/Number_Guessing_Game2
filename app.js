@@ -4,22 +4,27 @@ let noThanks = document.getElementById("noThanks");
 let thankYou = document.getElementById("thankYouCard");
 let wouldYou = document.getElementById("wouldYou");
 let gameCard = document.getElementById("gameCard");
-
+let begin = document.getElementById("begin");
+let options = document.getElementById("difficulty");
+let difficultyOption = document.getElementById("difficultyOption");
 //make no pop to thanks for visiting page
 function hideContainers() {
-  wouldYou.classList.toggle("notVisible");
-}
-function showContainers() {
-  thankYou.classList.toggle("visible");
+  wouldYou.classList.toggle("hide");
+  thankYou.classList.toggle("hide");
 }
 
-noThanks.addEventListener("click",(event) => {
+noThanks.addEventListener("click", (event) => {
   hideContainers();
-  showContainers();
 });
 
 //make yes pose difficulty choice with 4 buttons
-
+function startDifficulty() {
+  wouldYou.classList.toggle("hide");
+  difficultyOption.classList.toggle("hide");
+};
+startGame.addEventListener("click", (event) => {
+  startDifficulty()
+});
 //connect choice to game of choice
 
 //pop option to play again with yes or no buttons (modal?)

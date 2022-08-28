@@ -17,13 +17,26 @@
             <button type="submit" id="start">Yes</button>
             <button type="button" id="noThanks">No</button>
         </form>
-    <div class="gameCard" id="gameCard">
+    </div>
+    <div class="gameCard, hide" id="gameCard">
         <form>
         <label for="guess">Your Guess</label>
         <input type="text" name="guess" id="guessInput">
         <button type="submit" id="makeGuess">Check</button>
         </form>
     </div>
-    <div id="thankYouCard">Thanks For Stopping By</div>
+    <div class = "hide" id="difficultyOption">
+        <form>
+            <label for="difficulty">Choose Your Difficulty</label>
+            <select id="difficulty">
+                <option value="">--Difficulty--</option>
+                <option value="easy">Easy (1-10)</option>
+                <option value="hard">Hard (1-100)</option>
+                <option value="overkill">Overkill (1-1000)</option>
+            </select>
+            <button type ="button" id="begin">Begin The Game</button>
+        </form>
+    </div>
+    <div class = "hide" id="thankYouCard">Thanks For Stopping By</div>
 </body>
 </html>
