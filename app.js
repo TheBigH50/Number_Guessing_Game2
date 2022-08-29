@@ -40,7 +40,7 @@ async function playGameEasy() {
   let guess;
   makeGuess.addEventListener("click", (event) => {
     guess = guessInput.value;
-    do {
+    
     if (guess < rand) {
       judgeLabel.innerText = `${guess} is too low`;
       judge(); tryAgain.addEventListener("click", (event) => {
@@ -58,7 +58,7 @@ async function playGameEasy() {
       console.log(
         `WAY TO GO YOU GUESSED THE NUMBER ${guess} YOU ARE SO SMART!`
       );
-    }} while (guess != rand);
+    }
   });
 }
 async function playGame() {
