@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="app.js" defer></script>
-<link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <title>Guess A Number!</title>
-    
-</head>
-<h1>Harrison's Amazing Number Guess Game!</h1>
-<body>
+  </head>
+  <h1>Harrison's Amazing Number Guess Game!</h1>
+  <body>
     <div class="gameStart" id="wouldYou">
-        <form>
-            <label for="gameStart">Would You Like To Play A Game?</label>
-            <button type="button" id="start">Yes</button>
-            <button type="button" id="noThanks">No</button>
-        </form>
+      <form>
+        <label for="gameStart">Would You Like To Play A Game?</label>
+        <button type="button" id="start">Yes</button>
+        <button type="button" id="noThanks">No</button>
+      </form>
     </div>
+    <div class="hide" id="110">Guess a Number from 1-10</div>
     <div class="gameCard, hide" id="gameCard">
-        <form>
-        <label for="guess">I'm Thinking of a Number...</label>
-        <input type="text" name="guess" id="guessInput">
+      <form>
+        <label for="guess" id="gameCardLabel"></label>
+        <input type="text" name="guess" id="guessInput" />
         <button type="button" id="makeGuess">Check</button>
-        </form>
+      </form>
     </div>
-    <div class = "hide" id="difficultyOption">
-        <form>
-            <label for="difficulty">Choose Your Difficulty</label>
-            <button type="button" id="easy">Easy</button>
-            <button type="button" id="hard">Hard</button>
-            <button type="button" id="overkill">Overkill</button>
-        </form>
+    <div class="hide" id="difficultyOption">
+      <form>
+        <label for="difficulty">Choose Your Difficulty</label>
+        <button type="button" id="easy">Easy</button>
+        <button type="button" id="hard">Hard</button>
+        <button type="button" id="overkill">Overkill</button>
+      </form>
     </div>
-    <div class = "hide" id="thankYouCard">Thanks For Stopping By</div>
-</body>
+    <div class="hide" id="thankYouCard">Thanks For Stopping By</div>
+  </body>
 </html>
