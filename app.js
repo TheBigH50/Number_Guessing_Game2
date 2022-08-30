@@ -15,7 +15,7 @@ let judgement = document.getElementById("judgement");
 judgeLabel = document.getElementById("judgeLabel");
 let tryAgain = document.getElementById("tryAgain");
 //make no pop to thanks for visiting page
-async function hideContainers() {
+function hideContainers() {
   wouldYou.classList.toggle("hide");
   thankYou.classList.toggle("hide");
 }
@@ -25,7 +25,7 @@ noThanks.addEventListener("click", (event) => {
 });
 
 //make yes pose difficulty choice with 4 buttons
-async function startDifficulty() {
+function startDifficulty() {
   wouldYou.classList.toggle("hide");
   difficultyOption.classList.toggle("hide");
 }
@@ -34,7 +34,7 @@ startGame.addEventListener("click", (event) => {
 });
 //connect choice to game of choice
 
-async function playGameEasy() {
+function playGameEasy() {
   var rand = Math.floor(Math.random() * 10) + 1;
   gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 10...`;
   let guess;
@@ -61,7 +61,7 @@ async function playGameEasy() {
     }
   });
 }
-async function playGame() {
+function playGame() {
   difficultyOption.classList.toggle("hide");
   gameCard.classList.toggle("hide");
 }
@@ -70,7 +70,7 @@ easy.addEventListener("click", (event) => {
   playGame();
   playGameEasy();
 });
-async function judge() {
+function judge() {
   gameCard.classList.toggle("hide");
   judgement.classList.toggle("hide");
 }
