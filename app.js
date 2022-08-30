@@ -45,16 +45,20 @@ function playGameEasy() {
       judge();
     } else if (guess > rand) {
       judgeLabel.innerText = `${guess} is too high`;
+      judge();
      } else if (isNaN(guess)) {
-      alert(`Guess a number please`);
+      judgeLabel.innerText = `Your guess was not a number, try again.`;
+      judge();
     } else {
-      alert(`${guess} IS CORRECT!`);
+      judgeLabel.innerText = `${guess} IS CORRECT!`;
+      judge();
       console.log(
         `WAY TO GO YOU GUESSED THE NUMBER ${guess} YOU ARE SO SMART!`
       );
     }
   });
 }
+
 function playGame() {
   difficultyOption.classList.toggle("hide");
   gameCard.classList.toggle("hide");
