@@ -40,18 +40,12 @@ function playGameEasy() {
   let guess;
   makeGuess.addEventListener("click", (event) => {
     guess = guessInput.value;
-    
     if (guess < rand) {
       judgeLabel.innerText = `${guess} is too low`;
-      judge(); tryAgain.addEventListener("click", (event) => {
-        guessInput.value = ""; judge();
-      });
+      judge();
     } else if (guess > rand) {
-      judgeLabel.innerText = `${guess} is too `;
-      judge(); tryAgain.addEventListener("click", (event) => {
-        guessInput.value = ""; judge();
-      });
-    } else if (isNaN(guess)) {
+      judgeLabel.innerText = `${guess} is too high`;
+     } else if (isNaN(guess)) {
       alert(`Guess a number please`);
     } else {
       alert(`${guess} IS CORRECT!`);
@@ -74,4 +68,7 @@ function judge() {
   gameCard.classList.toggle("hide");
   judgement.classList.toggle("hide");
 }
+tryAgain.addEventListener("click", (event) => {
+  guessInput.value = ""; judge();
+});
 //pop option to play again with yes or no buttons (modal?)
