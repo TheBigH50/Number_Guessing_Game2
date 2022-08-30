@@ -30,7 +30,9 @@ function startDifficulty() {
   difficultyOption.classList.toggle("hide");
 }
 startGame.addEventListener("click", (event) => {
+  event.preventDefault();
   startDifficulty();
+  easy.focus();
 });
 //connect choice to game of choice
 
@@ -39,14 +41,16 @@ function playGameEasy() {
   gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 10...`;
   let guess;
   makeGuess.addEventListener("click", (event) => {
+    event.preventDefault();
     guess = guessInput.value;
     if (guess < rand) {
       judgeLabel.innerText = `${guess} is too low`;
       judge();
+      tryAgain.focus();
     } else if (guess > rand) {
       judgeLabel.innerText = `${guess} is too high`;
       judge();
-     } else if (isNaN(guess)) {
+    } else if (isNaN(guess)) {
       judgeLabel.innerText = `Your guess was not a number, try again.`;
       judge();
     } else {
@@ -67,12 +71,15 @@ easy.addEventListener("click", (event) => {
   guessInput.value = "";
   playGame();
   playGameEasy();
+  guessInput.focus();
 });
 function judge() {
   gameCard.classList.toggle("hide");
   judgement.classList.toggle("hide");
 }
 tryAgain.addEventListener("click", (event) => {
-  guessInput.value = ""; judge();
+  event.preventDefault();
+  guessInput.value = "";
+  judge();
 });
 //pop option to play again with yes or no buttons (modal?)

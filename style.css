@@ -21,3 +21,8 @@ body {
 #gameCard {
     background-color: rgb(33, 233, 99);
 }
+
+:focus {
+    outline: none;
+    
+}
