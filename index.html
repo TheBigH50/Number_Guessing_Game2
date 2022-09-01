@@ -25,20 +25,12 @@
       </form>
     </div>
     <div class="hide" id="judgement">
-        <form>
-            <label for="judgement" id="judgeLabel"></label>
-            <button type="submit" id="tryAgain">Try Again</button>
-        </form>
-    </div>
-    <div class="hide" id="winner">
       <form>
-        <label for="winner" id="winnerLabel">Would You Like To Play Again?</label>
-        <button type="submit" id="again">Yes</button>
-        <button type="button" id="notAgain">No</button>
-
+        <label for="judgement" id="judgeLabel"></label>
+        <button type="submit" id="tryAgain">Try Again</button>
       </form>
     </div>
-        <div class="hide" id="difficultyOption">
+    <div class="hide" id="difficultyOption">
       <form>
         <label for="difficulty">Choose Your Difficulty</label>
         <button type="button" id="easy">Easy</button>
@@ -46,6 +38,15 @@
         <button type="button" id="overkill">Overkill</button>
       </form>
     </div>
+    <div class="hide" id="winner">
+      <form>
+        <label for="winner" id="winLabel">You Win!</label>
+        <button type="submit" id="playAgain">Again?</button>
+        <button type="button" id="notAgain">I'm Done</button>
+      </form>
+      <img src="" alt="fireworks" id="winGIF">
+    </div>
     <div class="hide" id="thankYouCard">Thanks For Stopping By</div>
+    <div class="hide" id="thanksForPlaying">Thanks For Playing!</div>
   </body>
 </html>

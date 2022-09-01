@@ -12,8 +12,14 @@ let easy = document.getElementById("easy");
 let hard = document.getElementById("hard");
 let overkill = document.getElementById("overkill");
 let judgement = document.getElementById("judgement");
-judgeLabel = document.getElementById("judgeLabel");
+let judgeLabel = document.getElementById("judgeLabel");
 let tryAgain = document.getElementById("tryAgain");
+let winner = document.getElementById("winner");
+let playAgain = document.getElementById("playAgain");
+let winImg = document.getElementById("winGIF");
+let winLabel = document.getElementById("winLabel");
+let notAgain = document.getElementById("notAgain");
+let thanksForPlaying = document.getElementById("thanksForPlaying");
 //make no pop to thanks for visiting page
 function hideContainers() {
   wouldYou.classList.toggle("hide");
@@ -50,17 +56,45 @@ function playGameEasy() {
     } else if (guess > rand) {
       judgeLabel.innerText = `${guess} is too high`;
       judge();
+      tryAgain.focus();
     } else if (isNaN(guess)) {
       judgeLabel.innerText = `Your guess was not a number, try again.`;
       judge();
+      tryAgain.focus();
     } else {
-      judgeLabel.innerText = `${guess} IS CORRECT!`;
-      judge();
+      wonGame();
+      winLabel.innerText = `You Guessed ${guess}, That Is My Number!`
       console.log(
-        `WAY TO GO YOU GUESSED THE NUMBER ${guess} YOU ARE SO SMART!`
+        `WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`
       );
     }
   });
+}
+
+function wonGame() {
+  gameCard.classList.toggle("hide");
+  winner.classList.toggle("hide");
+  playAgain.focus();
+}
+
+playAgain.addEventListener("click", (event) => {
+event.preventDefault();
+  restart();
+});
+
+notAgain.addEventListener("click", (event) => {
+  imDone();
+});
+
+function imDone() {
+  winner.classList.toggle("hide");
+  thanksForPlaying.classList.toggle("hide");
+}
+
+function restart() {
+  winner.classList.toggle("hide");
+  difficultyOption.classList.toggle("hide");
+  hard.focus();
 }
 
 function playGame() {
@@ -81,5 +115,6 @@ tryAgain.addEventListener("click", (event) => {
   event.preventDefault();
   guessInput.value = "";
   judge();
+  guessInput.focus();
 });
 //pop option to play again with yes or no buttons (modal?)

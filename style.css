@@ -23,6 +23,7 @@ body {
 }
 
 :focus {
-    outline: none;
+    outline: ridge red 4px;
+    border-radius: 1px;
     
 }
