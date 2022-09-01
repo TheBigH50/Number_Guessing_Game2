@@ -63,7 +63,65 @@ function playGameEasy() {
       tryAgain.focus();
     } else {
       wonGame();
-      winLabel.innerText = `You Guessed ${guess}, That Is My Number!`
+      winLabel.innerText = `You Guessed ${guess}, That Is My Number!`;
+      console.log(
+        `WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`
+      );
+    }
+  });
+}
+
+function playGameHard() {
+  var rand = Math.floor(Math.random() * 100) + 1;
+  gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 100...`;
+  let guess;
+  makeGuess.addEventListener("click", (event) => {
+    event.preventDefault();
+    guess = guessInput.value;
+    if (guess < rand) {
+      judgeLabel.innerText = `${guess} is too low`;
+      judge();
+      tryAgain.focus();
+    } else if (guess > rand) {
+      judgeLabel.innerText = `${guess} is too high`;
+      judge();
+      tryAgain.focus();
+    } else if (isNaN(guess)) {
+      judgeLabel.innerText = `Your guess was not a number, try again.`;
+      judge();
+      tryAgain.focus();
+    } else {
+      wonGame();
+      winLabel.innerText = `You Guessed ${guess}, That Is My Number!`;
+      console.log(
+        `WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`
+      );
+    }
+  });
+}
+
+function playGameOverkill() {
+  var rand = Math.floor(Math.random() * 1000) + 1;
+  gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 1,000...`;
+  let guess;
+  makeGuess.addEventListener("click", (event) => {
+    event.preventDefault();
+    guess = guessInput.value;
+    if (guess < rand) {
+      judgeLabel.innerText = `${guess} is too low`;
+      judge();
+      tryAgain.focus();
+    } else if (guess > rand) {
+      judgeLabel.innerText = `${guess} is too high`;
+      judge();
+      tryAgain.focus();
+    } else if (isNaN(guess)) {
+      judgeLabel.innerText = `Your guess was not a number, try again.`;
+      judge();
+      tryAgain.focus();
+    } else {
+      wonGame();
+      winLabel.innerText = `You Guessed ${guess}, That Is My Number!`;
       console.log(
         `WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`
       );
@@ -78,7 +136,7 @@ function wonGame() {
 }
 
 playAgain.addEventListener("click", (event) => {
-event.preventDefault();
+  event.preventDefault();
   restart();
 });
 
@@ -105,6 +163,18 @@ easy.addEventListener("click", (event) => {
   guessInput.value = "";
   playGame();
   playGameEasy();
+  guessInput.focus();
+});
+hard.addEventListener("click", (event) => {
+  guessInput.value = "";
+  playGame();
+  playGameHard();
+  guessInput.focus();
+});
+overkill.addEventListener("click", (event) => {
+  guessInput.value = "";
+  playGame();
+  playGameOverkill();
   guessInput.focus();
 });
 function judge() {
