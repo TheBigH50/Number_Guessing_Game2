@@ -1,4 +1,5 @@
-//welcome screen/start game (main screen, pose question give 2 buttons yes or no)
+//Selectors
+
 let makeGuess = document.getElementById("makeGuess");
 let guessInput = document.getElementById("guessInput");
 let gameCardLabel = document.getElementById("gameCardLabel");
@@ -20,27 +21,110 @@ let winImg = document.getElementById("winGIF");
 let winLabel = document.getElementById("winLabel");
 let notAgain = document.getElementById("notAgain");
 let thanksForPlaying = document.getElementById("thanksForPlaying");
-//make no pop to thanks for visiting page
-function hideContainers() {
-  wouldYou.classList.toggle("hide");
-  thankYou.classList.toggle("hide");
-}
+
+//Event Listeners
 
 noThanks.addEventListener("click", (event) => {
   hideContainers();
 });
 
-//make yes pose difficulty choice with 4 buttons
+startGame.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  startDifficulty();
+
+  easy.focus();
+});
+
+playAgain.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  restart();
+});
+
+notAgain.addEventListener("click", (event) => {
+  imDone();
+});
+
+easy.addEventListener("click", (event) => {
+  guessInput.value = "";
+
+  playGame();
+
+  playGameEasy();
+
+  guessInput.focus();
+});
+
+hard.addEventListener("click", (event) => {
+  guessInput.value = "";
+
+  playGame();
+
+  playGameHard();
+
+  guessInput.focus();
+});
+
+overkill.addEventListener("click", (event) => {
+  guessInput.value = "";
+
+  playGame();
+
+  playGameOverkill();
+
+  guessInput.focus();
+});
+
+tryAgain.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  guessInput.value = "";
+
+  judge();
+
+  guessInput.focus();
+});
+
+//Transitional Functions
+
+function hideContainers() {
+  wouldYou.classList.toggle("hide");
+  thankYou.classList.toggle("hide");
+}
+
 function startDifficulty() {
   wouldYou.classList.toggle("hide");
   difficultyOption.classList.toggle("hide");
 }
-startGame.addEventListener("click", (event) => {
-  event.preventDefault();
-  startDifficulty();
-  easy.focus();
-});
-//connect choice to game of choice
+
+function wonGame() {
+  gameCard.classList.toggle("hide");
+  winner.classList.toggle("hide");
+  playAgain.focus();
+}
+
+function imDone() {
+  winner.classList.toggle("hide");
+  thanksForPlaying.classList.toggle("hide");
+}
+
+function restart() {
+  winner.classList.toggle("hide");
+  difficultyOption.classList.toggle("hide");
+  hard.focus();
+}
+
+function playGame() {
+  difficultyOption.classList.toggle("hide");
+  gameCard.classList.toggle("hide");
+}
+function judge() {
+  gameCard.classList.toggle("hide");
+  judgement.classList.toggle("hide");
+}
+
+//Game Core Functions
 
 function playGameEasy() {
   var rand = Math.floor(Math.random() * 10) + 1;
@@ -128,63 +212,3 @@ function playGameOverkill() {
     }
   });
 }
-
-function wonGame() {
-  gameCard.classList.toggle("hide");
-  winner.classList.toggle("hide");
-  playAgain.focus();
-}
-
-playAgain.addEventListener("click", (event) => {
-  event.preventDefault();
-  restart();
-});
-
-notAgain.addEventListener("click", (event) => {
-  imDone();
-});
-
-function imDone() {
-  winner.classList.toggle("hide");
-  thanksForPlaying.classList.toggle("hide");
-}
-
-function restart() {
-  winner.classList.toggle("hide");
-  difficultyOption.classList.toggle("hide");
-  hard.focus();
-}
-
-function playGame() {
-  difficultyOption.classList.toggle("hide");
-  gameCard.classList.toggle("hide");
-}
-easy.addEventListener("click", (event) => {
-  guessInput.value = "";
-  playGame();
-  playGameEasy();
-  guessInput.focus();
-});
-hard.addEventListener("click", (event) => {
-  guessInput.value = "";
-  playGame();
-  playGameHard();
-  guessInput.focus();
-});
-overkill.addEventListener("click", (event) => {
-  guessInput.value = "";
-  playGame();
-  playGameOverkill();
-  guessInput.focus();
-});
-function judge() {
-  gameCard.classList.toggle("hide");
-  judgement.classList.toggle("hide");
-}
-tryAgain.addEventListener("click", (event) => {
-  event.preventDefault();
-  guessInput.value = "";
-  judge();
-  guessInput.focus();
-});
-//pop option to play again with yes or no buttons (modal?)
