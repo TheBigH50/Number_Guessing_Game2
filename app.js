@@ -1,5 +1,6 @@
 //Selectors
-
+let guess;
+let rand;
 let makeGuess = document.getElementById("makeGuess");
 let guessInput = document.getElementById("guessInput");
 let gameCardLabel = document.getElementById("gameCardLabel");
@@ -127,9 +128,18 @@ function judge() {
 //Game Core Functions
 
 function playGameEasy() {
-  var rand = Math.floor(Math.random() * 10) + 1;
+  rand = Math.floor(Math.random() * 10) + 1;
   gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 10...`;
-  let guess;
+}
+function playGameHard() {
+  rand = Math.floor(Math.random() * 100) + 1;
+  gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 100...`;
+}
+function playGameOverkill() {
+  rand = Math.floor(Math.random() * 1000) + 1;
+  gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 1,000...`;
+}
+  
   makeGuess.addEventListener("click", (event) => {
     event.preventDefault();
     guess = guessInput.value;
@@ -153,7 +163,7 @@ function playGameEasy() {
       );
     }
   });
-}
+/*
 
 function playGameHard() {
   var rand = Math.floor(Math.random() * 100) + 1;
@@ -211,4 +221,4 @@ function playGameOverkill() {
       );
     }
   });
-}
+} */
