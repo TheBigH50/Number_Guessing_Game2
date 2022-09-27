@@ -128,38 +128,36 @@ function judge() {
 //Game Core Functions
 
 function playGameEasy() {
- rand = Math.floor(Math.random() * 10) + 1;
+  rand = Math.floor(Math.random() * 10) + 1;
   gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 10...`;
 }
 function playGameHard() {
- rand = Math.floor(Math.random() * 100) + 1;
+  rand = Math.floor(Math.random() * 100) + 1;
   gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 100...`;
 }
 function playGameOverkill() {
- rand = Math.floor(Math.random() * 1000) + 1;
+  rand = Math.floor(Math.random() * 1000) + 1;
   gameCardLabel.innerText = `I'm Thinking of a Number from 1 to 1,000...`;
 }
-  
-  makeGuess.addEventListener("click", (event) => {
-    event.preventDefault();
-   guess = guessInput.value;
-    if (guess < rand) {
-      judgeLabel.innerText = `${guess} is too low`;
-      judge();
-      tryAgain.focus();
-    } else if (guess > rand) {
-      judgeLabel.innerText = `${guess} is too high`;
-      judge();
-      tryAgain.focus();
-    } else if (isNaN(guess)) {
-      judgeLabel.innerText = `Your guess was not a number, try again.`;
-      judge();
-      tryAgain.focus();
-    } else {
-      wonGame();
-      winLabel.innerText = `You Guessed ${guess}, That Is My Number!`;
-      console.log(
-        `WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`
-      );
-    }
-  });
+
+makeGuess.addEventListener("click", (event) => {
+  event.preventDefault();
+  guess = guessInput.value;
+  if (guess < rand) {
+    judgeLabel.innerText = `${guess} is too low`;
+    judge();
+    tryAgain.focus();
+  } else if (guess > rand) {
+    judgeLabel.innerText = `${guess} is too high`;
+    judge();
+    tryAgain.focus();
+  } else if (isNaN(guess)) {
+    judgeLabel.innerText = `Your guess was not a number, try again.`;
+    judge();
+    tryAgain.focus();
+  } else {
+    wonGame();
+    winLabel.innerText = `You Guessed ${guess}, That Is My Number!`;
+    console.log(`WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`);
+  }
+});
