@@ -1,6 +1,4 @@
 //Selectors
-let guess;
-let rand;
 let makeGuess = document.getElementById("makeGuess");
 let guessInput = document.getElementById("guessInput");
 let gameCardLabel = document.getElementById("gameCardLabel");
