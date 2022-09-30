@@ -5,6 +5,7 @@ let startTime;
 let endTime;
 let totalTime;
 let seconds;
+let score = 1;
 let makeGuess = document.getElementById("makeGuess");
 let guessInput = document.getElementById("guessInput");
 let gameCardLabel = document.getElementById("gameCardLabel");
@@ -115,6 +116,12 @@ function calculateSeconds() {
   seconds = Math.round(totalTime / 1000);
 }
 
+// Score function
+
+function myScore() {
+  score += 1;
+}
+
 //Transitional Functions
 
 function hideContainers() {
@@ -142,6 +149,7 @@ function restart() {
   winner.classList.toggle("hide");
   difficultyOption.classList.toggle("hide");
   hard.focus();
+  score = 1;
 }
 
 function playGame() {
@@ -174,21 +182,24 @@ makeGuess.addEventListener("click", (event) => {
   if (guess < rand) {
     judgeLabel.innerText = `${guess} is too low`;
     judge();
+    myScore();
     tryAgain.focus();
   } else if (guess > rand) {
     judgeLabel.innerText = `${guess} is too high`;
     judge();
+    myScore();
     tryAgain.focus();
   } else if (isNaN(guess)) {
     judgeLabel.innerText = `Your guess was not a number, try again.`;
     judge();
+    myScore();
     tryAgain.focus();
   } else {
     wonGame();
     getEndTime();
     calculateDifference();
     calculateSeconds();
-    winLabel.innerText = `You Guessed ${guess}, That Is My Number! Your time was: ${seconds} seconds`;
+    winLabel.innerText = `You Guessed ${guess}, That Is My Number! You used ${score} guesses, your time was: ${seconds} seconds.`;
     console.log(`WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`);
   }
 });
