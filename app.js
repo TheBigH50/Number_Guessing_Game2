@@ -1,6 +1,10 @@
 //Selectors
 let guess;
 let rand;
+let startTime;
+let endTime;
+let totalTime;
+let seconds;
 let makeGuess = document.getElementById("makeGuess");
 let guessInput = document.getElementById("guessInput");
 let gameCardLabel = document.getElementById("gameCardLabel");
@@ -55,6 +59,8 @@ easy.addEventListener("click", (event) => {
   playGameEasy();
 
   guessInput.focus();
+
+  getStartTime();
 });
 
 hard.addEventListener("click", (event) => {
@@ -65,6 +71,8 @@ hard.addEventListener("click", (event) => {
   playGameHard();
 
   guessInput.focus();
+
+  getStartTime();
 });
 
 overkill.addEventListener("click", (event) => {
@@ -75,6 +83,8 @@ overkill.addEventListener("click", (event) => {
   playGameOverkill();
 
   guessInput.focus();
+
+  getStartTime();
 });
 
 tryAgain.addEventListener("click", (event) => {
@@ -86,6 +96,24 @@ tryAgain.addEventListener("click", (event) => {
 
   guessInput.focus();
 });
+
+// Timer Functions
+
+function getStartTime() {
+  startTime = new Date().getTime();
+}
+
+function getEndTime() {
+  endTime = new Date().getTime();
+}
+
+function calculateDifference() {
+  totalTime = endTime - startTime;
+}
+
+function calculateSeconds() {
+  seconds = Math.round(totalTime / 1000);
+}
 
 //Transitional Functions
 
@@ -157,7 +185,10 @@ makeGuess.addEventListener("click", (event) => {
     tryAgain.focus();
   } else {
     wonGame();
-    winLabel.innerText = `You Guessed ${guess}, That Is My Number!`;
+    getEndTime();
+    calculateDifference();
+    calculateSeconds();
+    winLabel.innerText = `You Guessed ${guess}, That Is My Number! Your time was: ${seconds} seconds`;
     console.log(`WAY TO GO YOU GUESSED THE NUMBER ${guess}, YOU ARE SO SMART!`);
   }
 });
